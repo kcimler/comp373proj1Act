@@ -41,85 +41,86 @@ public class Main {
                     removeFacility();   // removes a facility from the system
                     break;
                 case 3:
-                    //TODO
-                    while(facilityIndex >= 0 && facilityIndex <= myFacilities.size()) {// runs until te user no longer is in an active facility
-                        boolean detailMenu = false;
-                        System.out.println("Available Facilities: ");
-                        listFacilites();
-                        System.out.println("Enter the name for which facility you would like to access, or press -1 to quit: ");
-                        tempName = scanner.nextLine();
-                        tempName.toLowerCase();
-                        facilityIndex = checkForFacility(tempName);
-                        if (facilityIndex == -1){
-                            detailMenu = true;
-                        }
-                        while(!detailMenu) {
-                            System.out.println("Welcome to the Facility Details section!");
-                            printFacilityDetailInstructions();
-                            System.out.println("Please enter your choice: ");
-                            choice = scanner.nextInt();
-                            scanner.nextLine();
-                            switch (choice) {
-                                case 1:
-                                    System.out.println("Test 1");
-                                    break;
-                                case 2:
-                                    System.out.println("Test 2");
-                                    break;
-                                case 3:
-                                    System.out.println("Test 3");
-                                    break;
-                                case 4:
-                                    detailMenu = true;
-                                    break;
-                                default:
-                                    System.out.println("Invalid Choice. Try Again!");
-                            }
-                        }
-
-
-                    }
-                    break;
+//                    while(facilityIndex >= 0 && facilityIndex <= myFacilities.size()) {// runs until te user no longer is in an active facility
+//                        boolean detailMenu = false;
+//                        System.out.println("Available Facilities: ");
+//                        listFacilites();
+//                        System.out.println("Enter the name for which facility you would like to access, or press -1 to quit: ");
+//                        tempName = scanner.nextLine();
+//                        tempName.toLowerCase();
+//                        facilityIndex = checkForFacility(tempName);
+//                        if (facilityIndex == -1){
+//                            detailMenu = true;
+//                        }
+//                        while(!detailMenu) {
+//                            System.out.println("Welcome to the Facility Details section!");
+//                            printFacilityDetailInstructions();
+//                            System.out.println("Please enter your choice: ");
+//                            choice = scanner.nextInt();
+//                            scanner.nextLine();
+//                            switch (choice) {
+//                                case 1:
+//                                    myFacilities.get(facilityIndex).getFacilityDetail();
+//                                    System.out.println("\n");
+//                                    break;
+//                                case 2:
+//                                    System.out.println("The available capacity amount for this facility is: "
+//                                            + myFacilities.get(facilityIndex).availableCapacity());
+//                                    break;
+//                                case 3:
+//                                    myFacilities.get(facilityIndex).addFacilityDetail();
+//                                    break;
+//                                case 4:
+//                                    detailMenu = true;
+//                                    break;
+//                                default:
+//                                    System.out.println("Invalid Choice. Try Again!");
+//                            }
+//                        }
+//
+//
+//                    }
+//                    break;
                 case 4:
-                    // TODO
-                    while(facilityIndex >= 0 && facilityIndex <= myFacilities.size()) {// runs until te user no longer is in an active facility
-                        boolean detailMenu = false;
-                        System.out.println("Available Facilities: ");
-                        listFacilites();
-                        System.out.println("Enter the name for which facility you would like to access, or press -1 to quit: ");
-                        tempName = scanner.nextLine();
-                        tempName.toLowerCase();
-                        facilityIndex = checkForFacility(tempName);
-                        if (facilityIndex == -1){
-                            detailMenu = true;
-                        }
-                        while(!detailMenu) {
-                            System.out.println("Welcome to the Facility Operations section!");
-                            printFacilityDetailInstructions();
-                            System.out.println("Please enter your choice: ");
-                            choice = scanner.nextInt();
-                            scanner.nextLine();
-                            switch (choice) {
-                                case 1:
-                                    System.out.println("Test 1");
-                                    break;
-                                case 2:
-                                    System.out.println("Test 2");
-                                    break;
-                                case 3:
-                                    System.out.println("Test 3");
-                                    break;
-                                case 4:
-                                    detailMenu = true;
-                                    break;
-                                default:
-                                    System.out.println("Invalid Choice. Try Again!");
-                            }
-                        }
-
-
-                    }
-                    break;
+//                    // TODO
+//                    while(facilityIndex >= 0 && facilityIndex <= myFacilities.size()) {// runs until te user no longer is in an active facility
+//                        boolean detailMenu = false;
+//                        System.out.println("Available Facilities: ");
+//                        listFacilites();
+//                        System.out.println("Enter the name for which facility you would like to access, or press -1 to quit: ");
+//                        tempName = scanner.nextLine();
+//                        tempName.toLowerCase();
+//                        facilityIndex = checkForFacility(tempName);
+//                        if (facilityIndex == -1){
+//                            detailMenu = true;
+//                        }
+//                        while(!detailMenu) {
+//                            System.out.println("Welcome to the Facility Operations section!");
+//                            printFacilityUsageInstructions();
+//                            System.out.println("Please enter your choice: ");
+//                            choice = scanner.nextInt();
+//                            scanner.nextLine();
+//                            switch (choice) {
+//                                case 1:
+//                                    System.out.println("Test 1");
+//                                    break;
+//                                case 2:
+//                                    System.out.println("Test 2");
+//                                    break;
+//                                case 3:
+//                                    System.out.println("Test 3");
+//                                    break;
+//                                case 4:
+//                                    detailMenu = true;
+//                                    break;
+//                                default:
+//                                    System.out.println("Invalid Choice. Try Again!");
+//                            }
+//                        }
+//
+//
+//                    }
+//                    break;
                 case 5:
                     // TODO
                     while(facilityIndex >= 0 && facilityIndex <= myFacilities.size()) {// runs until te user no longer is in an active facility
@@ -135,7 +136,7 @@ public class Main {
                         }
                         while(!detailMenu) {
                             System.out.println("Welcome to the Facility Maintenance section!");
-                            printFacilityDetailInstructions();
+                            printFacilityMaintenanceInstructions();
                             System.out.println("Please enter your choice: ");
                             choice = scanner.nextInt();
                             scanner.nextLine();
@@ -188,9 +189,30 @@ public class Main {
         System.out.println("\n Press ");
         System.out.println("\t 0 - To print menu choices.");
         System.out.println("\t 1 - List Facility Details");
-        System.out.println("\t 2 - Add a bio to facility");
-        System.out.println("\t 3 - Be awesome");
-        System.out.println("\t 4 - Quit out of Faciity Detail Menu");
+        System.out.println("\t 2 - Request Available Capacity of the Facility");
+        System.out.println("\t 3 - Add a bio to the Facility");
+        System.out.println("\t 4 - Quit out of Facility Detail Menu");
+
+    }
+    public static void printFacilityUsageInstructions(){
+        System.out.println("\n Press ");
+        System.out.println("\t 0 - To print menu choices.");
+        System.out.println("\t 1 - List Facility Details");
+        System.out.println("\t 2 - Add a bio to the facility");
+        System.out.println("\t 3 - Request Available Capacity of the Facility");
+        System.out.println("\t 4 - Quit out of Facility Detail Menu");
+
+    }
+
+    public static void printFacilityMaintenanceInstructions(){
+        System.out.println("\n Press ");
+        System.out.println("\t 0 - To print menu choices.");
+        System.out.println("\t 1 - Make a Maintenance Request.");
+        System.out.println("\t 2 - Schedule a current outgoing maintenance request.");
+        System.out.println("\t 3 - List current outgoing maintenance requests.");
+        System.out.println("\t 4 - List completed maintenance requests.");
+        System.out.println("\t 5 - Show current Maintenance Cost for Facility.");
+        System.out.println("\t 6 - Quit out of Facility Detail Menu");
 
     }
 

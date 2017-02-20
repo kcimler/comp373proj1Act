@@ -8,9 +8,11 @@ public class Facility {
     private String name;
     private String typeOfBuilding;
     private Address address;
-    private int capacity;
+    private int maxCapacity;
     private int numOfRooms;
     private int numOfStaff;
+    private int currentCapacity;
+    private String detailBio;
     private Maintenance maintenance;
 
     public ArrayList <Log> unresolvedMaintRequests = new ArrayList<Log>();
@@ -18,13 +20,23 @@ public class Facility {
     public static Scanner scanner = new Scanner(System.in);
 
     public Facility(String name, String typeOfBuilding, Address address,
-                    int capacity, int numOfRooms, int numOfStaff) {
+                    int maxCapacity, int numOfRooms, int numOfStaff) {
         this.name = name;
         this.typeOfBuilding = typeOfBuilding;
         this.address = address;
-        this.capacity = capacity;
+        this.maxCapacity = maxCapacity;
         this.numOfRooms = numOfRooms;
         this.numOfStaff = numOfStaff;
+        this.currentCapacity = numOfStaff;
+
+    }
+
+    public void setDetailBio(String detailBio) {
+        this.detailBio = detailBio;
+    }
+
+    public String getDetailBio() {
+        return detailBio;
     }
 
     public String getName() {
@@ -35,12 +47,8 @@ public class Facility {
         return typeOfBuilding;
     }
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public int getCapacity() {
-        return capacity;
+    public int getMaxCapacity() {
+        return maxCapacity;
     }
 
     public int getNumOfRooms() {
@@ -49,6 +57,10 @@ public class Facility {
 
     public int getNumOfStaff() {
         return numOfStaff;
+    }
+
+    public int getCurrentCapacity() {
+        return currentCapacity;
     }
 
     public void makeFacilityMaintRequest(){
@@ -60,5 +72,26 @@ public class Facility {
         Log temp = new Log(title, description);
         maintenance.makeFacilityMaintRequest(temp, unresolvedMaintRequests);
 
+    }
+
+    public void getFacilityDetail(){
+        System.out.println("\nCurrent Facility Information: ");
+        System.out.println("\nName: " + getName());
+        System.out.println("Type of Bulding: " + getTypeOfBuilding());
+        System.out.println("Address: " +  (this.address.getStreet()) + ". " + (this.address.getCity()) + ", " + (this.address.getState()) + " " + (this.address.getZip()));
+        System.out.println("Max maxCapacity: " + getMaxCapacity());
+        System.out.println("Number of Rooms: " + getNumOfRooms());
+        System.out.println("Number of Staff Members: " + getNumOfStaff());
+        System.out.println("Facility Description: " + getDetailBio());
+    }
+
+    public int availableCapacity(){
+        return (getMaxCapacity() - getCurrentCapacity());
+    }
+
+    public void addFacilityDetail(){
+        System.out.println("Please enter a description of the Facility: ");
+        detailBio = scanner.nextLine();
+        setDetailBio(detailBio);
     }
 }
