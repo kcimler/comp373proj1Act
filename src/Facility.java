@@ -15,12 +15,12 @@ public class Facility {
     private String detailBio;
     private Maintenance maintenance;
 
-    public ArrayList <Log> unresolvedMaintRequests = new ArrayList<Log>();
-    public ArrayList <Log> resolvedMaintRequests = new ArrayList<Log>();
     public static Scanner scanner = new Scanner(System.in);
 
+    // Constructor //
+
     public Facility(String name, String typeOfBuilding, Address address,
-                    int maxCapacity, int numOfRooms, int numOfStaff) {
+                    int maxCapacity, int numOfRooms, int numOfStaff, Maintenance maintenance) {
         this.name = name;
         this.typeOfBuilding = typeOfBuilding;
         this.address = address;
@@ -28,8 +28,11 @@ public class Facility {
         this.numOfRooms = numOfRooms;
         this.numOfStaff = numOfStaff;
         this.currentCapacity = numOfStaff;
+        this.maintenance = maintenance;
 
     }
+
+    // Getters and Setters //
 
     public void setDetailBio(String detailBio) {
         this.detailBio = detailBio;
@@ -63,16 +66,25 @@ public class Facility {
         return currentCapacity;
     }
 
-    public void makeFacilityMaintRequest(){
-        String title, description;
-        System.out.println("Please enter the title for the request: ");
-        title = scanner.nextLine();
-        System.out.println("Please enter the description for the request: ");
-        description = scanner.nextLine();
-        Log temp = new Log(title, description);
-        maintenance.makeFacilityMaintRequest(temp, unresolvedMaintRequests);
+    // Maintenance Getters //
 
+    public void getMakeFacilityMaintRequest(){
+        maintenance.makeFacilityMaintRequest();
     }
+
+    public void getListMaintRequests(){
+        maintenance.listMaintRequests();
+    }
+
+    public void getScheduleMaintenance(){
+        maintenance.scheduleMaintenance();
+    }
+
+    public void getListMaintenance(){
+        maintenance.listMaintenance();
+    }
+
+    // Facility Detail Operators //
 
     public void getFacilityDetail(){
         System.out.println("\nCurrent Facility Information: ");
@@ -94,4 +106,5 @@ public class Facility {
         detailBio = scanner.nextLine();
         setDetailBio(detailBio);
     }
+
 }

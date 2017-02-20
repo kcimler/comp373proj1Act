@@ -14,11 +14,11 @@ public class Main {
 
 	    Facility testFacility1 = new Facility("Apartment", "Residence",
                 new Address("1234 Awesome Street", "Milwaukee", "WI", "53118"),
-                50, 8, 2);
+                50, 8, 2, new Maintenance());
 
 	    Facility testFacility2 = new Facility("IC", "Educational",
                 new Address("100 Loyola", "Chicago", "IL", "60660"),
-                500, 200, 100);
+                500, 200, 100, new Maintenance());
 
 	    myFacilities.add(testFacility1);   // Test facilites for the sake of the project
 	    myFacilities.add(testFacility2);
@@ -59,6 +59,9 @@ public class Main {
 //                            choice = scanner.nextInt();
 //                            scanner.nextLine();
 //                            switch (choice) {
+//                                case 0:
+//                                    printFacilityDetailInstructions();
+//                                    break;
 //                                case 1:
 //                                    myFacilities.get(facilityIndex).getFacilityDetail();
 //                                    System.out.println("\n");
@@ -77,8 +80,6 @@ public class Main {
 //                                    System.out.println("Invalid Choice. Try Again!");
 //                            }
 //                        }
-//
-//
 //                    }
 //                    break;
                 case 4:
@@ -101,6 +102,9 @@ public class Main {
 //                            choice = scanner.nextInt();
 //                            scanner.nextLine();
 //                            switch (choice) {
+//                                case 0:
+//                                    printFacilityUsageInstructions();
+//                                    break;
 //                                case 1:
 //                                    System.out.println("Test 1");
 //                                    break;
@@ -141,16 +145,25 @@ public class Main {
                             choice = scanner.nextInt();
                             scanner.nextLine();
                             switch (choice) {
+                                case 0:
+                                    printFacilityMaintenanceInstructions();
                                 case 1:
-                                    System.out.println("Test 1");
+                                    myFacilities.get(facilityIndex).getMakeFacilityMaintRequest();
+                                    System.out.println("Done! Maintenance Request sent!");
                                     break;
                                 case 2:
-                                    System.out.println("Test 2");
+                                    myFacilities.get(facilityIndex).getScheduleMaintenance();
                                     break;
                                 case 3:
-                                    System.out.println("Test 3");
+                                    myFacilities.get(facilityIndex).getListMaintRequests();
                                     break;
                                 case 4:
+                                    myFacilities.get(facilityIndex).getListMaintenance();
+                                    break;
+                                case 5:
+                                    detailMenu = true;
+                                    break;
+                                case 6:
                                     detailMenu = true;
                                     break;
                                 default:
@@ -238,7 +251,7 @@ public class Main {
         System.out.println("Please enter the number of staff running the facility: ");
         numOfStaff = scanner.nextInt();
         myFacilities.add(new Facility(name, typeOfBuilding, new Address(street, city, state, zip),
-                capacity, numOfRooms, numOfStaff));
+                capacity, numOfRooms, numOfStaff, new Maintenance()));
         System.out.println("Done! The new facility has been added!");
 
     }
