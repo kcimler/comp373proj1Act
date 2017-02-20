@@ -26,7 +26,7 @@ public class Maintenance {
         int month, day, index;
         double cost;
         listMaintRequests();
-        System.out.println("Please type in the number of the maintenance request you would like to schedule: ");
+        System.out.println("Please type in the number of the maintenance request you would like to schedule this: ");
         index = scanner.nextInt() - 1;
         while (index <= -1 || index >= unresolvedMaintRequests.size()){
             System.out.println("Maintenance request does not exist. Please try again: ");

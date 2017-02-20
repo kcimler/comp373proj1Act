@@ -14,13 +14,13 @@ public class Main {
 
 	    // TEST FACILITIES //
 
-	    Facility testFacility1 = new Facility("Apartment", "Residence",
+	    Facility testFacility1 = new Facility("Apartment", "Residence", "6:00 A.m - 12:00 A.M",
                 new Address("1234 Awesome Street", "Milwaukee", "WI", "53118"),
-                50, 8, 2, new Maintenance());
+                50, 8, 2, new Maintenance(), new FacilityUse());
 
-	    Facility testFacility2 = new Facility("IC", "Educational",
+	    Facility testFacility2 = new Facility("IC", "Educational", "7:00 A.m - 2:00 A.M",
                 new Address("100 Loyola", "Chicago", "IL", "60660"),
-                500, 200, 100, new Maintenance());
+                500, 200, 100, new Maintenance(), new FacilityUse());
 
 	    myFacilities.add(testFacility1);   // Test facilites for the sake of the project
 	    myFacilities.add(testFacility2);
@@ -47,7 +47,7 @@ public class Main {
                         boolean detailMenu = false;
                         System.out.println("Available Facilities: ");
                         listFacilites();
-                        System.out.println("Enter the name for which facility you would like to access, or press -1 to quit: ");
+                        System.out.println("Enter the name for which facility you would like to access, or press -1 to quit out to main menu: ");
                         tempName = scanner.nextLine();
                         tempName.toLowerCase();
                         facilityIndex = checkForFacility(tempName);
@@ -85,55 +85,69 @@ public class Main {
                     }
                     break;
                 case 4:
-//                    // TODO
-//                    while(facilityIndex >= 0 && facilityIndex <= myFacilities.size()) {// runs until te user no longer is in an active facility
-//                        boolean detailMenu = false;
-//                        System.out.println("Available Facilities: ");
-//                        listFacilites();
-//                        System.out.println("Enter the name for which facility you would like to access, or press -1 to quit: ");
-//                        tempName = scanner.nextLine();
-//                        tempName.toLowerCase();
-//                        facilityIndex = checkForFacility(tempName);
-//                        if (facilityIndex == -1){ // Checks to see if user quit out back to main menu
-//                            detailMenu = true;
-//                        }
-//                        while(!detailMenu) {  Will run usage menu until user quits out of it
-//                            System.out.println("Welcome to the Facility Operations section!");
-//                            printFacilityUsageInstructions();
-//                            System.out.println("Please enter your choice: ");
-//                            choice = scanner.nextInt();
-//                            scanner.nextLine();
-//                            switch (choice) {
-//                                case 0:
-//                                    printFacilityUsageInstructions();
-//                                    break;
-//                                case 1:
-//                                    System.out.println("Test 1");
-//                                    break;
-//                                case 2:
-//                                    System.out.println("Test 2");
-//                                    break;
-//                                case 3:
-//                                    System.out.println("Test 3");
-//                                    break;
-//                                case 4:
-//                                    detailMenu = true;
-//                                    break;
-//                                default:
-//                                    System.out.println("Invalid Choice. Try Again!");
-//                            }
-//                        }
-//
-//
-//                    }
-//                    break;
+                    while(facilityIndex >= 0 && facilityIndex <= myFacilities.size()) {// runs until te user no longer is in an active facility
+                        boolean detailMenu = false;
+                        System.out.println("Available Facilities: ");
+                        listFacilites();
+                        System.out.println("Enter the name for which facility you would like to access, or press -1 to quit out to main menu: ");
+                        tempName = scanner.nextLine();
+                        tempName.toLowerCase();
+                        facilityIndex = checkForFacility(tempName);
+                        if (facilityIndex == -1){ // Checks to see if user quit out back to main menu
+                            detailMenu = true;
+                        }
+                        while(!detailMenu) {  // Will run usage menu until user quits out of it
+                            System.out.println("Welcome to the Facility Operations section!");
+                            printFacilityUsageInstructions();
+                            System.out.println("Please enter your choice: ");
+                            choice = scanner.nextInt();
+                            scanner.nextLine();
+                            switch (choice) {
+                                case 0:
+                                    printFacilityUsageInstructions();
+                                    break;
+                                case 1:
+                                    myFacilities.get(facilityIndex).isInUseDuringInterval();
+                                    break;
+                                case 2:
+                                    myFacilities.get(facilityIndex).assignFacilityToUse();
+                                    break;
+                                case 3:
+                                    myFacilities.get(facilityIndex).assignFaciltiyToUnused();
+                                    break;
+                                case 4:
+                                    myFacilities.get(facilityIndex).getScheduleInspection();
+                                    break;
+                                case 5:
+                                    myFacilities.get(facilityIndex).getListInspections();
+                                    break;
+                                case 6:
+                                    myFacilities.get(facilityIndex).addCurrentCapacity();
+                                    break;
+                                case 7:
+                                    myFacilities.get(facilityIndex).reduceCurrentCapacity();
+                                    break;
+                                case 8:
+                                    myFacilities.get(facilityIndex).getCalcUsageRate();
+                                    break;
+                                case 9:
+                                    detailMenu = true;
+                                    break;
+                                default:
+                                    System.out.println("Invalid Choice. Try Again!");
+                            }
+                        }
+
+
+                    }
+                    break;
                 case 5:
                     // TODO
                     while(facilityIndex >= 0 && facilityIndex <= myFacilities.size()) {// runs until te user no longer is in an active facility
                         boolean detailMenu = false;
                         System.out.println("Available Facilities: ");
                         listFacilites();
-                        System.out.println("Enter the name for which facility you would like to access, or press -1 to quit: ");
+                        System.out.println("Enter the name for which facility you would like to access, or press -1 to quit out to main menu: ");
                         tempName = scanner.nextLine();
                         tempName.toLowerCase();
                         facilityIndex = checkForFacility(tempName);
@@ -172,8 +186,6 @@ public class Main {
                                     System.out.println("Invalid Choice. Try Again!");
                             }
                         }
-
-
                     }
                     break;
                 case 6:
@@ -187,6 +199,8 @@ public class Main {
             }
         }
     }
+
+    // MENU INSTRUCTIONS FOR THE UI //
 
     public static void printMainMenuInstructions(){
         System.out.println("\n Press ");
@@ -203,20 +217,25 @@ public class Main {
     public static void printFacilityDetailInstructions(){
         System.out.println("\n Press ");
         System.out.println("\t 0 - To print menu choices.");
-        System.out.println("\t 1 - List Facility Details");
-        System.out.println("\t 2 - Request Available Capacity of the Facility");
-        System.out.println("\t 3 - Add a bio to the Facility");
-        System.out.println("\t 4 - Quit out of Facility Detail Menu");
+        System.out.println("\t 1 - List Facility Details.");
+        System.out.println("\t 2 - Request Available Capacity of the Facility.");
+        System.out.println("\t 3 - To add a bio to the facility.");
+        System.out.println("\t 4 - Quit out of Facility Detail Menu.");
+
 
     }
     public static void printFacilityUsageInstructions(){
         System.out.println("\n Press ");
         System.out.println("\t 0 - To print menu choices.");
-        System.out.println("\t 1 - List Facility Details");
-        System.out.println("\t 2 - Add a bio to the facility");
-        System.out.println("\t 3 - Request Available Capacity of the Facility");
-        System.out.println("\t 4 - Quit out of Facility Detail Menu");
-
+        System.out.println("\t 1 - To see facility usage hours." );
+        System.out.println("\t 2 - To open the facility to being used.");
+        System.out.println("\t 3 - To close the facility.");
+        System.out.println("\t 4 - To schedule an inspection of the facility.");
+        System.out.println("\t 5 - To list currently scheduled inspections.");
+        System.out.println("\t 6 - To add people to the current capacity.");
+        System.out.println("\t 7 - To subtract people from the current capacity.");
+        System.out.println("\t 8 - To see current usage rate of the facility.");
+        System.out.println("\t 9 - To quit out of the Facility Usage Menu.");
     }
 
     public static void printFacilityMaintenanceInstructions(){
@@ -231,13 +250,17 @@ public class Main {
 
     }
 
+    // MAIN MENU FACILITY MANAGEMENT METHODS //
+
     public static void addNewFacility(){
-        String name, typeOfBuilding, street, city, state, zip ;
+        String name, typeOfBuilding, hours, street, city, state, zip ;
         int capacity, numOfRooms, numOfStaff;
         System.out.println("Please enter the name of the facility: ");
         name = scanner.nextLine();
         System.out.println("Please enter the type of building for the facility: ");
         typeOfBuilding = scanner.nextLine();
+        System.out.println("Please enter the hours in which the facility will be open to use: ");
+        hours = scanner.nextLine();
         System.out.println("Please enter JUST the street address (The rest will come later): ");
         street = scanner.nextLine();
         System.out.println("Please enter the city where the facility is located: ");
@@ -252,8 +275,8 @@ public class Main {
         numOfRooms = scanner.nextInt();
         System.out.println("Please enter the number of staff running the facility: ");
         numOfStaff = scanner.nextInt();
-        myFacilities.add(new Facility(name, typeOfBuilding, new Address(street, city, state, zip),
-                capacity, numOfRooms, numOfStaff, new Maintenance()));
+        myFacilities.add(new Facility(name, typeOfBuilding, hours, new Address(street, city, state, zip),
+                capacity, numOfRooms, numOfStaff, new Maintenance(), new FacilityUse()));
         System.out.println("Done! The new facility has been added!");
 
     }
