@@ -7,12 +7,16 @@ public class Address {
     private String state;
     private String zip;
 
+    // CONSTRUCTOR //
+
     public Address(String street, String city, String state, String zip) {
         this.street = street;
         this.city = city;
         this.state = state;
         this.zip = zip;
     }
+
+    // GETTERS //
 
     public String getStreet() {
         return street;

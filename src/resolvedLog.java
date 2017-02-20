@@ -7,24 +7,23 @@ public class resolvedLog {
     private String description;
     private int month;
     private int day;
+    private double cost;
 
-    public resolvedLog(String title, String description, int month, int day) {
+    // CONSTRUCTOR //
+
+    public resolvedLog(String title, String description, int month, int day, double cost) {
         this.title = title;
         this.description = description;
         this.month = month;
         this.day = day;
-    }
-    public void setMonth(int month) {
-        this.month = month;
+        this.cost = cost;
     }
 
-    public void setDay(int day) {
-        this.day = day;
-    }
+    // GETTERS //
 
-    public int getMonth() {
-        return month;
-    }
+    public double getCost() {return cost;}
+
+    public int getMonth() {return month;}
 
     public int getDay() {
         return day;

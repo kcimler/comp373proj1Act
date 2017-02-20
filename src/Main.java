@@ -12,6 +12,8 @@ public class Main {
 	    int facilityIndex = 0;
 	    String tempName;
 
+	    // TEST FACILITIES //
+
 	    Facility testFacility1 = new Facility("Apartment", "Residence",
                 new Address("1234 Awesome Street", "Milwaukee", "WI", "53118"),
                 50, 8, 2, new Maintenance());
@@ -23,7 +25,7 @@ public class Main {
 	    myFacilities.add(testFacility1);   // Test facilites for the sake of the project
 	    myFacilities.add(testFacility2);
 
-        while (!progQuit){
+        while (!progQuit){    // Will run main menu until user quits the program
             facilityIndex = 0;
             System.out.println("Welcome to the Facility Manager!");
             printMainMenuInstructions();
@@ -41,47 +43,47 @@ public class Main {
                     removeFacility();   // removes a facility from the system
                     break;
                 case 3:
-//                    while(facilityIndex >= 0 && facilityIndex <= myFacilities.size()) {// runs until te user no longer is in an active facility
-//                        boolean detailMenu = false;
-//                        System.out.println("Available Facilities: ");
-//                        listFacilites();
-//                        System.out.println("Enter the name for which facility you would like to access, or press -1 to quit: ");
-//                        tempName = scanner.nextLine();
-//                        tempName.toLowerCase();
-//                        facilityIndex = checkForFacility(tempName);
-//                        if (facilityIndex == -1){
-//                            detailMenu = true;
-//                        }
-//                        while(!detailMenu) {
-//                            System.out.println("Welcome to the Facility Details section!");
-//                            printFacilityDetailInstructions();
-//                            System.out.println("Please enter your choice: ");
-//                            choice = scanner.nextInt();
-//                            scanner.nextLine();
-//                            switch (choice) {
-//                                case 0:
-//                                    printFacilityDetailInstructions();
-//                                    break;
-//                                case 1:
-//                                    myFacilities.get(facilityIndex).getFacilityDetail();
-//                                    System.out.println("\n");
-//                                    break;
-//                                case 2:
-//                                    System.out.println("The available capacity amount for this facility is: "
-//                                            + myFacilities.get(facilityIndex).availableCapacity());
-//                                    break;
-//                                case 3:
-//                                    myFacilities.get(facilityIndex).addFacilityDetail();
-//                                    break;
-//                                case 4:
-//                                    detailMenu = true;
-//                                    break;
-//                                default:
-//                                    System.out.println("Invalid Choice. Try Again!");
-//                            }
-//                        }
-//                    }
-//                    break;
+                    while(facilityIndex >= 0 && facilityIndex <= myFacilities.size()) {// runs until the user no longer is in an active facility
+                        boolean detailMenu = false;
+                        System.out.println("Available Facilities: ");
+                        listFacilites();
+                        System.out.println("Enter the name for which facility you would like to access, or press -1 to quit: ");
+                        tempName = scanner.nextLine();
+                        tempName.toLowerCase();
+                        facilityIndex = checkForFacility(tempName);
+                        if (facilityIndex == -1){ // Checks to see if user quit out back to main menu
+                            detailMenu = true;
+                        }
+                        while(!detailMenu) {  // Will run detail menu until user quits out of it
+                            System.out.println("Welcome to the Facility Details section!");
+                            printFacilityDetailInstructions();
+                            System.out.println("Please enter your choice: ");
+                            choice = scanner.nextInt();
+                            scanner.nextLine();
+                            switch (choice) {
+                                case 0:
+                                    printFacilityDetailInstructions();
+                                    break;
+                                case 1:
+                                    myFacilities.get(facilityIndex).getFacilityDetail();  // Gets facility detail method
+                                    System.out.println("\n");
+                                    break;
+                                case 2:
+                                    System.out.println("The available capacity amount for this facility is: "
+                                            + myFacilities.get(facilityIndex).availableCapacity());  // Gets available capacity method
+                                    break;
+                                case 3:
+                                    myFacilities.get(facilityIndex).addFacilityDetail();  // Gets addFacilityDetail Method
+                                    break;
+                                case 4:
+                                    detailMenu = true;  // Quits the facility detail menu
+                                    break;
+                                default:
+                                    System.out.println("Invalid Choice. Try Again!");
+                            }
+                        }
+                    }
+                    break;
                 case 4:
 //                    // TODO
 //                    while(facilityIndex >= 0 && facilityIndex <= myFacilities.size()) {// runs until te user no longer is in an active facility
@@ -92,10 +94,10 @@ public class Main {
 //                        tempName = scanner.nextLine();
 //                        tempName.toLowerCase();
 //                        facilityIndex = checkForFacility(tempName);
-//                        if (facilityIndex == -1){
+//                        if (facilityIndex == -1){ // Checks to see if user quit out back to main menu
 //                            detailMenu = true;
 //                        }
-//                        while(!detailMenu) {
+//                        while(!detailMenu) {  Will run usage menu until user quits out of it
 //                            System.out.println("Welcome to the Facility Operations section!");
 //                            printFacilityUsageInstructions();
 //                            System.out.println("Please enter your choice: ");
@@ -135,10 +137,10 @@ public class Main {
                         tempName = scanner.nextLine();
                         tempName.toLowerCase();
                         facilityIndex = checkForFacility(tempName);
-                        if (facilityIndex == -1){
+                        if (facilityIndex == -1){  // Checks to see if user quit out back to main menu
                             detailMenu = true;
                         }
-                        while(!detailMenu) {
+                        while(!detailMenu) {  // Will run maintenance menu until user quits out of it
                             System.out.println("Welcome to the Facility Maintenance section!");
                             printFacilityMaintenanceInstructions();
                             System.out.println("Please enter your choice: ");
@@ -161,7 +163,7 @@ public class Main {
                                     myFacilities.get(facilityIndex).getListMaintenance();
                                     break;
                                 case 5:
-                                    detailMenu = true;
+                                    myFacilities.get(facilityIndex).getCalcMaintenanceCostForFacility();
                                     break;
                                 case 6:
                                     detailMenu = true;

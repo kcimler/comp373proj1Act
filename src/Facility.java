@@ -17,7 +17,7 @@ public class Facility {
 
     public static Scanner scanner = new Scanner(System.in);
 
-    // Constructor //
+    // CONSTRUCTOR //
 
     public Facility(String name, String typeOfBuilding, Address address,
                     int maxCapacity, int numOfRooms, int numOfStaff, Maintenance maintenance) {
@@ -32,7 +32,7 @@ public class Facility {
 
     }
 
-    // Getters and Setters //
+    // GETTERS AND SETTERS //
 
     public void setDetailBio(String detailBio) {
         this.detailBio = detailBio;
@@ -66,7 +66,7 @@ public class Facility {
         return currentCapacity;
     }
 
-    // Maintenance Getters //
+    // MAINTENANCE GETTERS //
 
     public void getMakeFacilityMaintRequest(){
         maintenance.makeFacilityMaintRequest();
@@ -80,13 +80,13 @@ public class Facility {
         maintenance.scheduleMaintenance();
     }
 
-    public void getListMaintenance(){
-        maintenance.listMaintenance();
-    }
+    public void getListMaintenance() {maintenance.listMaintenance();}
 
-    // Facility Detail Operators //
+    public void getCalcMaintenanceCostForFacility() {maintenance.calcMaintenanceCostForFacility();}
 
-    public void getFacilityDetail(){
+    // FACILITY DETAIL METHODS //
+
+    public void getFacilityDetail(){ // Lists off all the details of the current facility //
         System.out.println("\nCurrent Facility Information: ");
         System.out.println("\nName: " + getName());
         System.out.println("Type of Bulding: " + getTypeOfBuilding());
@@ -97,9 +97,11 @@ public class Facility {
         System.out.println("Facility Description: " + getDetailBio());
     }
 
-    public int availableCapacity(){
-        return (getMaxCapacity() - getCurrentCapacity());
-    }
+    // Calculates the available capacity in the facility
+
+    public int availableCapacity(){return (getMaxCapacity() - getCurrentCapacity());}
+
+    // Adds a detail to the facility //
 
     public void addFacilityDetail(){
         System.out.println("Please enter a description of the Facility: ");

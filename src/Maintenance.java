@@ -1,3 +1,5 @@
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -10,7 +12,7 @@ public class Maintenance {
     public ArrayList <resolvedLog> resolvedMaintRequests = new ArrayList<resolvedLog>();
     public Scanner scanner = new Scanner(System.in);
 
-    public void makeFacilityMaintRequest(){  // Logs a new outgoing maintenance request
+    public void makeFacilityMaintRequest(){  // Logs a new outgoing maintenance request //
         String title, description;
         System.out.println("Please enter the title for the request: ");
         title = scanner.nextLine();
@@ -20,8 +22,9 @@ public class Maintenance {
         unresolvedMaintRequests.add(temp);
     }
 
-    public void scheduleMaintenance() {  // Switches an outgoing maintenance request to a resolved request with a set maintenance date
+    public void scheduleMaintenance() {  // Switches an outgoing maintenance request to a resolved request with a set maintenance date //
         int month, day, index;
+        double cost;
         listMaintRequests();
         System.out.println("Please type in the number of the maintenance request you would like to schedule: ");
         index = scanner.nextInt() - 1;
@@ -41,16 +44,23 @@ public class Maintenance {
             System.out.println("Said day date does not exist. Please try again: ");
             day = scanner.nextInt();
         }
+        System.out.println("Please enter the estimated cost to complete said maintenance: ");
+        cost = scanner.nextDouble();
         resolvedLog temp = new resolvedLog(unresolvedMaintRequests.get(index).getTitle(),
                 unresolvedMaintRequests.get(index).getTitle(),
-                month, day);
+                month, day, cost); //Enters all gathered information into a new resolved Log entry.
 
-        resolvedMaintRequests.add(temp);
-        unresolvedMaintRequests.remove(index);
+        resolvedMaintRequests.add(temp);  // Adds the new resolved log into the system
+        unresolvedMaintRequests.remove(index);  // Removes the old log from the system
     }
 
     public void calcMaintenanceCostForFacility(){
-
+        double overall = 0;
+        for (int i = 0; i < resolvedMaintRequests.size(); i++){
+            overall = overall + resolvedMaintRequests.get(i).getCost();
+            System.out.println(resolvedMaintRequests.get(i).getTitle() + ": $" + (String.format("%.2f",resolvedMaintRequests.get(i).getCost())));
+        }
+        System.out.println("Total Maintenance Cost: $" + (String.format("%.2f",overall)));
     }
 
     public void calcProblemRateForFacility(){
