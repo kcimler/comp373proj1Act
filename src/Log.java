@@ -7,11 +7,9 @@ public class Log {
     private int month;
     private int day;
 
-    public Log(String title, String description, int month, int day) {
+    public Log(String title, String description) {
         this.title = title;
         this.description = description;
-        this.month = month;
-        this.day = day;
     }
 
     public void setMonth(int month) {
