@@ -24,5 +24,27 @@ public class Facility {
         this.numOfStaff = numOfStaff;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public String getTypeOfBuilding() {
+        return typeOfBuilding;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getNumOfRooms() {
+        return numOfRooms;
+    }
+
+    public int getNumOfStaff() {
+        return numOfStaff;
+    }
 }
