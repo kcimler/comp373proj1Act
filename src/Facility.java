@@ -92,6 +92,8 @@ public class Facility {
 
     public void getCalcMaintenanceCostForFacility() {maintenance.calcMaintenanceCostForFacility();}
 
+    public void getListFacilityProblems() {maintenance.listFacilityProblems();}
+
     // FACILITY DETAIL METHODS //
 
     public void getFacilityDetail(){ // Lists off all the details of the current facility //

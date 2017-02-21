@@ -180,7 +180,7 @@ public class Main {
                                     myFacilities.get(facilityIndex).getCalcMaintenanceCostForFacility();
                                     break;
                                 case 6:
-                                    detailMenu = true;
+                                    myFacilities.get(facilityIndex).getListFacilityProblems();
                                     break;
                                 default:
                                     System.out.println("Invalid Choice. Try Again!");

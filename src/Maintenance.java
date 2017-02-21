@@ -84,6 +84,9 @@ public class Maintenance {
         }
     }
     public void listFacilityProblems(){
-
+        System.out.println("Current Problems: ");
+        for (int i = 0; i < unresolvedMaintRequests.size(); i++){
+            System.out.println((i+1) + ": " + unresolvedMaintRequests.get(i).getDescription());
+        }
     }
 }
