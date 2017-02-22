@@ -25,6 +25,8 @@ public class Main {
 	    myFacilities.add(testFacility1);   // Test facilites for the sake of the project
 	    myFacilities.add(testFacility2);
 
+	    // UI CODE //
+
         while (!progQuit){    // Will run main menu until user quits the program
             facilityIndex = 0;
             System.out.println("Welcome to the Facility Manager!");
@@ -182,6 +184,9 @@ public class Main {
                                 case 6:
                                     myFacilities.get(facilityIndex).getListFacilityProblems();
                                     break;
+                                case 7:
+                                    detailMenu = true;
+                                    break;
                                 default:
                                     System.out.println("Invalid Choice. Try Again!");
                             }
@@ -246,7 +251,8 @@ public class Main {
         System.out.println("\t 3 - List current outgoing maintenance requests.");
         System.out.println("\t 4 - List completed maintenance requests.");
         System.out.println("\t 5 - Show current Maintenance Cost for Facility.");
-        System.out.println("\t 6 - Quit out of Facility Detail Menu");
+        System.out.println("\t 6 - List current issues with the facility.");
+        System.out.println("\t 7 - Quit out of Facility Detail Menu");
 
     }
 
